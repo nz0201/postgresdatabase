@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fcf3f6;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    border: 2px solid #e6d9de;
+    padding: 10px;
+    background: #e1c9cd;
+}
+
+button {
+    margin-bottom: 20px;
+    padding: 10px;
+}

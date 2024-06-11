@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Info</title>
+    <link rel="stylesheet" href="/css/addStyle.css">
+    <script src="/js/viewScript.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Rectangle Info</h1>
+        <div id="rectangle" th:style="'background-color: ' + ${rectangle.color}"></div> 
+        <div class="rectangleInfo"> 
+            <form th:action="@{/rectangles/edit/{id}(id=${rectangle.uid})}" method="post">
+                <input type="text" id="nameInput" name="name" th:value="${rectangle.name}" required><br>
+                <input type="number" id="widthInput" name="width" min="0" th:value="${rectangle.width}" required><br>
+                <input type="number" id="heightInput" name="height" min="0" th:value="${rectangle.height}" required><br>
+                <label for="colorInput">Color:</label>
+                <input type="color" id="colorInput" name="color" th:value="${rectangle.color}" required><br>
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+        <button id="backButton" onclick="window.history.back()">Back to Menu</button> 
+    </div>
+</body>
+</html>

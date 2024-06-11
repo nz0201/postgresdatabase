@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fcf3f6;
+}
+
+.container {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    margin: 5px 0 5px;
+}
+
+button {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+#rectangle {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: 20px auto 30px;
+    display: block;
+    padding-top: 5px;
+}

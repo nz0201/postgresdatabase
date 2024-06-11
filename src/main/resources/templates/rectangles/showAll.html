@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangles</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h1>All Rectangles</h1>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Width</th>
+                        <th>Height</th>
+                        <th>Color</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr th:each="rectangle:${rec}">
+                        <th><a th:href="@{/rectangles/{id}(id=${rectangle.uid})}" th:text="${rectangle.name}">&nbsp;</a></th>
+                        <th th:text="${rectangle.width}"></th>
+                        <th th:text="${rectangle.height}"></th>
+                        <th th:text="${rectangle.color}"></th>
+                        <th><a th:href="@{/rectangles/delete/{id}(id=${rectangle.uid})}" th:text="Delete">&nbsp;</a></th>
+                    </tr>
+                </table>
+                <a id="addButton" href="add.html">
+                    <button>Add New</button>
+                </a>
+            </div>
+        </div>
+    </main>    
+</body>
+</html>
