@@ -23,7 +23,6 @@ public class RectController {
 
     @GetMapping("")
     public String getAllRect(Model model) {
-        System.out.println("Getting all rectangles");
         List<Rectangle> rectangles = rectRepo.findAll();
         model.addAttribute("rec", rectangles);
         return "rectangles/showAll";

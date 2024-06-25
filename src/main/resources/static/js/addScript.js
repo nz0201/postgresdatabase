@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rectangle.style.width = widthInput.value;
         rectangle.style.height = heightInput.value;
     }
+    
     nameInput.addEventListener('input', addRectangle);
     colorInput.addEventListener('input', addRectangle);
     widthInput.addEventListener('input', addRectangle);
