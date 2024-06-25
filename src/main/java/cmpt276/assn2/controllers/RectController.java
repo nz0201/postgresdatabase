@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import cmpt276.assn2.models.Rectangle;
 import cmpt276.assn2.models.RectRepo;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -29,7 +28,7 @@ public class RectController {
     }
 
     @PostMapping("/rectangles/add")
-    public String addRectangle(HttpServletRequest request, HttpServletResponse response) {
+    public String addRectangle(HttpServletRequest request) {
         String name = request.getParameter("name");
         String width = request.getParameter("width");
         String height = request.getParameter("height");
@@ -43,7 +42,6 @@ public class RectController {
         Rectangle newRectangle = new Rectangle(newName, newWidth, newHeight, newColor);
         rectRepo.save(newRectangle);
 
-        response.setStatus(201);
         return "redirect:/";
     }
 
@@ -55,15 +53,14 @@ public class RectController {
     }
 
     @GetMapping("/rectangles/delete/{id}")
-    public String deleteRectangle(@PathVariable("id") int id, Model model) {
+    public String deleteRectangle(@PathVariable("id") int id) {
         Optional<Rectangle> rectangle = rectRepo.findById(id);
         rectRepo.delete(rectangle.get());
-        model.addAttribute("message", "The rectangle has been successfully deleted");
         return "redirect:/";
     }
 
     @PostMapping("/rectangles/edit/{id}")
-    public String editRectangle(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response) {
+    public String editRectangle(@PathVariable("id") int id, HttpServletRequest request) {
         Optional<Rectangle> optionalRectangle = rectRepo.findById(id);
         if (!optionalRectangle.isPresent()) {
             return "redirect:/";
